@@ -1,0 +1,21 @@
+<main class="container">
+  <h1 class="heading">Sign Up!</h1>
+
+  <%= form_with(url: users_path, method: "post") do |form| %>
+    <section class="user-registration">
+      <div class="form-input">
+        <p>Name:</p>
+        <%= form.text_field :name, required: true %>
+      </div>
+      <div class="form-input">
+        <p>Email:</p>
+        <%= form.email_field :email, required: true %>
+      </div>
+      <div class="form-input">
+        <p>Password:</p>
+        <%= form.password_field :password, required: true %>
+      </div>
+      <%= form.submit "Sign Up" , class: "button" %>
+    </section>
+  <% end %>
+</main>

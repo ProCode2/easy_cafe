@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :menus
   # user routes
   resources :users
+  #cart routes
+  resources :carts
+
+  get "/signin" => "sessions#new", as: :new_session
+  post "/signin" => "sessions#create", as: :sessions
+  delete "/signout" => "sessions#destroy", as: :destroy_session
 end

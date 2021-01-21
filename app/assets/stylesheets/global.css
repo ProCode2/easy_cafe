@@ -1,0 +1,31 @@
+.heading {
+  color: #453c52;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.button {
+  background-color: #2b0a15;
+  border-radius: 8px;
+  border: 0;
+  outline: none;
+  color: white;
+  padding: 0.7rem 1.3rem;
+  cursor: pointer;
+  transition: all 600ms ease;
+}
+
+.button:hover {
+  box-shadow: 3px 4px 5px gray;
+}
+
+.container {
+  width: 460px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
