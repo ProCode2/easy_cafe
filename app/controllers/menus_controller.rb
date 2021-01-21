@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
   def index
-    render plain: Menu.all.first.menu_items.map{ |item| "#{item.tods}" }.join("\n")
+    @menu = Menu.find_by_id(1)
+    render "index"
   end
 end

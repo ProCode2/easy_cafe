@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get "/" => "home#index"
   # menu routes
   resources :menus
+  # user routes
+  resources :users
 end

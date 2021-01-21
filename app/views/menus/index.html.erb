@@ -1,0 +1,38 @@
+<div class="menu-container">
+  <h1 class="menu-heading">
+    <%= @menu.name %>
+  </h1>
+  <%= form_with(url: "#") do |form| %>
+  <table class="menu-table">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>quantity</th>
+    </tr>
+    <% @menu.menu_items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td><%= item.price %></td>
+        <td>
+            <%= form.number_field item.name, in:1..200 %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>Total</td>
+      <td></td>
+      <td>Price</td>
+      <td>Items</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="button"><%= form.submit "Add" %></td>
+    </tr>
+  </table>
+
+  <% end %>
+</div>

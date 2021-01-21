@@ -1,0 +1,32 @@
+.menu-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.menu-heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  box-shadow: 3px 3px 4px lightgray, -3px -3px 4px lightgray;
+}
+
+.menu-table tbody tr td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.menu-table tbody tr th {
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #e2e2b6;
+}
