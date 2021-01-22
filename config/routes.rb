@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   resources :menus
   # user routes
   resources :users
-
-  get "/cart" => "carts#index", as: :carts
-  post "/cart" => "carts#create", as: :new_cart
+  resources :carts
 
   get "/signin" => "sessions#new", as: :new_session
   post "/signin" => "sessions#create", as: :sessions

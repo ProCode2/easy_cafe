@@ -2,7 +2,7 @@
   <h1 class="menu-heading">
     <%= @menu.name %>
   </h1>
-  <%= form_with(url: new_cart_path, method: "post") do |form| %>
+  <%= form_with(url: carts_path, method: "post") do |form| %>
   <table class="menu-table">
     <tr>
       <th>Name</th>

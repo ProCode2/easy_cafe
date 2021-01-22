@@ -1,0 +1,33 @@
+<section class="container">
+
+  <div class="cart-options">
+    <%= link_to "Add more items", menus_path, class: "cta"  %>
+    <%= link_to "Proceed to order", "#", class: "cta"  %>
+  </div>
+  <% @cart.each do |item| %>
+    <div class="cart-item">
+      <h1 class="item-date"><%= item.created_at.to_s(:short) %></h1>
+      <div class="item-info">
+        <h1 class="item-name"><%= item.menu_item_name %><span class="item-price"><%= "#{item.menu_item_quantity}" %></span><span class="item-price"><%= "Rs#{item.menu_item_price}" %></span></h1>
+        <div class="item-option">
+          <div class="item-add">
+            <%= form_with(url: carts_path, method: "post") do |form| %>
+              <%= form.number_field "menu_items[#{item.menu_item_name}]", in:1..200, class: "item-quantity" %>
+              <%= form.submit "Add", in:1..200, class: "button-2" %>
+
+            <% end %>
+          </div>
+          <%= form_with(url: "/carts/#{item.id}", method: "delete") do |form| %>
+            <%= form.submit("", {
+                  class: "item-delete",
+                  type: "image",
+                  src: asset_path('delete.png'),
+                  alt: "submit",
+                  onClick: "this.form.submit()"
+                  }) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>

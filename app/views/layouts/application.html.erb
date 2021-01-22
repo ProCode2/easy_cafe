@@ -17,6 +17,7 @@
       <ul class="nav-menu">
         <% if @current_user %>
           <li><%= @current_user.name %></li>
+          <li><%= link_to "Cart", carts_path %></li>
           <li><%= link_to "Sign out", destroy_session_path, method: "delete" %></li>
         <% else %>
           <li><%= link_to "Sign In", new_session_path %></li>

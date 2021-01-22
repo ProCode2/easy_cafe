@@ -1,3 +1,8 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .heading {
   color: #453c52;
   font-size: 30px;
@@ -19,7 +24,19 @@
   transition: all 600ms ease;
 }
 
-.button:hover {
+.button-2 {
+  background-color: #2b0a15;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  color: #e2e2b6;
+  padding: 0.3rem 1.3rem;
+  cursor: pointer;
+  transition: all 600ms ease;
+}
+
+.button:hover,
+.button-2:hover {
   box-shadow: 3px 4px 5px gray;
 }
 
@@ -28,4 +45,22 @@
   margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 24px;
+}
+
+.cta {
+  background-color: #1a0c47;
+  padding: 0.7rem 1.3rem;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px lightblue;
+  color: white;
+  font-weight: 600;
+  font-family: monospace;
+  margin: 0 1rem;
+  letter-spacing: 1.1px;
+  transition: all 600ms ease;
+}
+
+.cta:hover {
+  transform: scale(1.08);
 }

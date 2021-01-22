@@ -47,7 +47,11 @@
   margin-right: 1rem;
 }
 
-.nav-menu li:hover {
+.nav-menu li a {
+  font-size: 16px;
+}
+
+.nav-menu li a:hover {
   color: #ce3f0e;
 }
 
