@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
   def index
-    @cart = current_user.cart.cart_items.all.order(:id)
+    @cart = (current_user.cart) ? current_user.cart.cart_items.all.order(:id) : []
     render "index"
   end
 
