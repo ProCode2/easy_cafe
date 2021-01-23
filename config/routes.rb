@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :users
   resources :carts
 
-  post "/order" => "orders#create", as: :orders
+  get "/orders" => "orders#index", as: :all_orders
+  post "/orders" => "orders#create", as: :orders
+  get "/orders/:id" => "orders#show"
 
   get "/signin" => "sessions#new", as: :new_session
   post "/signin" => "sessions#create", as: :sessions

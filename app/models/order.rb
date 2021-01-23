@@ -7,7 +7,6 @@ class Order < ApplicationRecord
   end
 
   def create_order_items(current_user)
-    if current_user.cart and
     # copy cart items to order items
     current_user.cart.cart_items.each do |item|
       OrderItem.create!(

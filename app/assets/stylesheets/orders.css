@@ -1,0 +1,24 @@
+.order-heading {
+  font-size: 22x;
+  font-weight: 600;
+  margin: 1rem;
+  text-align: left;
+}
+
+.order {
+  width: 100%;
+  padding: 1rem 0.7rem;
+  margin: 0.7rem;
+  box-shadow: 3px 3px 4px #ce3f0e, -3px -3px 5px #ce3f0e;
+  border-radius: 12px;
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-id {
+  font-size: 22px;
+  font-family: monospace;
+  font-weight: 600;
+}

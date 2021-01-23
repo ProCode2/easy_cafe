@@ -1,7 +1,18 @@
 class OrdersController < ApplicationController
   def index
-    @order = current_user.order ? current_user.order.order_items.all : []
+    @orders = current_user.orders ? current_user.orders.all : []
     render "index"
+  end
+
+  def show
+    id = params[:id].to_i
+
+    if id <= 0
+      return
+    end
+
+    @order = current_user.orders.find_by_id(id)
+    render "order"
   end
 
   def create
@@ -9,6 +20,6 @@ class OrdersController < ApplicationController
     order = Order.creat_order(current_user)
     # create order items
     order.create_order_items(current_user)
-    redirect_to menus_path
+    redirect_to "/orders/#{order.id}"
   end
 end
