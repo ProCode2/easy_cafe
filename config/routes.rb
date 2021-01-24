@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :menus
   # user routes
   resources :users
+
+  post "/users/clerk" => "users#clerk_create", as: :clerks
+
   resources :carts
 
   get "/orders" => "orders#index", as: :all_orders

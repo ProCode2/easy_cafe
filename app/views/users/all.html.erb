@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="heading">Clerks</h1>
+  <div class="">
+    <%= form_with(url: clerks_path, method: "post", class: "clerk-form") do |form| %>
+      <%= form.text_field("name", {placeholder: "Name"}) %>
+      <%= form.text_field("email", {placeholder: "Email"}) %>
+      <%= form.text_field("password", {placeholder: "Password"}) %>
+      <%= form.submit "Add", class: "button-2" %>
+    <% end %>
+  </div>
+  <% @clerks.each do |user| %>
+    <%= render partial: "user", locals: {user: user}%>
+  <% end %>
+  <h1 class="heading">Customers</h1>
+  <% @customers.each do |user| %>
+    <%= render partial: "user", locals: {user: user}%>
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+<div class="user">
+  <p class="user-date"><%= user.created_at.to_s(:short) %></p>
+  <div class="user-info">
+    <h1 class="user-name"><%= user.name %></h1>
+    <%= form_with(url: "/users/#{user.id}", method: "delete") do |form| %>
+        <%= form.submit("", {
+              class: "item-delete",
+              type: "image",
+              src: asset_path('delete.png'),
+              alt: "submit",
+              onClick: "this.form.submit()"
+              }) %>
+      <% end %>
+  </div>
+</div>
