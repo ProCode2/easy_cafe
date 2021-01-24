@@ -1,0 +1,21 @@
+<main class="container">
+  <h1 class="heading">Edit Menu Item</h1>
+
+  <%= form_with(url: "/menuitem/#{@menu_item.id}", method: "put") do |form| %>
+    <section class="user-registration">
+      <div class="form-input">
+        <p>Item Name:</p>
+        <%= form.text_field :name, required: true, value: @menu_item.name %>
+      </div>
+      <div class="form-input">
+        <p>Description:</p>
+        <%= form.text_field :desc, required: true, value: @menu_item.description %>
+      </div>
+      <div class="form-input">
+        <p>Price:</p>
+        <%= form.text_field :price, required: true, value: @menu_item.price %>
+      </div>
+      <%= form.submit "Confirm Change" , class: "button" %>
+    </section>
+  <% end %>
+</main>

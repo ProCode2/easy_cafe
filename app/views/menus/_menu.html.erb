@@ -1,0 +1,22 @@
+<%= link_to("/menus/#{menu.id}") do %>
+  <div class="user">
+    <p class="user-date"><%= menu.created_at.to_s(:short) %></p>
+    <div class="user-info">
+      <h1 class="user-name"><%= menu.name %></h1>
+      <div class="menu-options">
+        <%= form_with(url: "/menus/#{menu.id}", method: "delete") do |form| %>
+          <%= form.check_box(:active) %>
+        <% end %>
+        <%= form_with(url: "/menus/#{menu.id}", method: "delete") do |form| %>
+          <%= form.submit("", {
+                class: "item-delete",
+                type: "image",
+                src: asset_path('delete.png'),
+                alt: "submit",
+                onClick: "this.form.submit()"
+                }) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

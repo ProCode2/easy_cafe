@@ -1,0 +1,8 @@
+<div class="container">
+  <div>
+    <%= link_to "New Menu", new_menu_path, class: "cta"  %>
+  </div>
+  <% @menus.each do |menu| %>
+    <%= render partial: "menu", locals: {menu: menu} %>
+  <% end %>
+</div>

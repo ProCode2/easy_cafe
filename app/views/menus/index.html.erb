@@ -9,6 +9,9 @@
       <th>Description</th>
       <th>Price</th>
       <th>quantity</th>
+      <% if @current_user.role == "owner" %>
+        <th>Edit</th>
+      <% end %>
     </tr>
     <% @menu.menu_items.each do |item| %>
       <tr>
@@ -18,6 +21,16 @@
         <td>
             <%= form.number_field "menu_items[#{item.name}]", in:1..200 %>
         </td>
+        <% if @current_user.role == "owner" %>
+          <td>
+            <%= link_to("/menuitem/#{item.id}") do %>
+              <%= image_tag(asset_path("pencil.png"), size: "20x20") %>
+            <% end %>
+            <%= link_to("/menuitem/#{item.id}", method: "delete") do %>
+              <%= image_tag(asset_path("delete.png"), size: "20x20") %>
+            <% end %>
+          </td>
+      <% end %>
       </tr>
     <% end %>
     <tr>
@@ -28,5 +41,16 @@
     </tr>
   </table>
 
+
   <% end %>
+
+  <div class="">
+    <h1 class="heading">Add New Item</h1>
+    <%= form_with(url: "/manage/menus/#{@menu.id}", method: "post") do |form| %>
+      <%= form.text_field("name", {placeholder: "Name"}) %>
+      <%= form.text_field("desc", {placeholder: "Description"}) %>
+      <%= form.text_field("price", {placeholder: "Price"}) %>
+      <%= form.submit "Add", class: "button-2" %>
+    <% end %>
+  </div>
 </div>

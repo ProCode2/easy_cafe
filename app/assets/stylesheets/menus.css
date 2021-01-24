@@ -30,3 +30,20 @@
 tr:nth-child(even) {
   background-color: #e2e2b6;
 }
+
+.menu-inputs {
+  display: inline-flex;
+  margin: 20px 0;
+}
+
+#menu-form input {
+  margin: 0 10px;
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+}
+
+.menu-options {
+  display: flex;
+  align-items: center;
+}
