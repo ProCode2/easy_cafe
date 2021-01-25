@@ -3,10 +3,9 @@ class UsersController < ApplicationController
   before_action :ensure_user_is_owner, only: [:index, :destroy, :clerk_create]
 
   def index
-    @clerks = User.all.where(role: "clerk")
-    @customers = User.all.where(role: nil)
+    @clerks = User.clerks
+    @customers = User.customers
     render "all"
-
   end
 
   def new
@@ -20,8 +19,18 @@ class UsersController < ApplicationController
     result = User.create_user(name, email, digest)
 
     if result[:success]
-      redirect_to menus_path
+      user = result[:success]
+      add_session(user.id)
+      flash[:success] = "Succesfully Registered"
+      if user.role == "customer"
+        redirect_to menus_path
+      elsif user.role == "owner"
+        redirect_to users_path
+      else
+        redirect_to manage_orders_path
+      end
     else
+      flash[:error] = result[:error]
       redirect_to new_user_path
     end
   end
@@ -34,8 +43,10 @@ class UsersController < ApplicationController
     result = User.create_user(name, email, digest, "clerk")
 
     if result[:success]
+      flash[:success] = "New User created successfully."
       redirect_to users_path
     else
+      flash[:error] = "Can not create User at the moment."
       redirect_to users_path
     end
   end
@@ -47,8 +58,14 @@ class UsersController < ApplicationController
       return
     end
 
-    user = User.find_by_id(id)
-    user.destroy
-    redirect_to users_path
+    result = User.delete_user(id)
+
+    if result
+      flash[:success] = "User #{id} deleted successfully."
+      redirect_to users_path
+    else
+      flash[:error] = "Can not delete User #{id} at the moment"
+      redirect_to users_path
+    end
   end
 end

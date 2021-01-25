@@ -1,12 +1,19 @@
-<%= link_to("/menus/#{menu.id}") do %>
   <div class="user">
     <p class="user-date"><%= menu.created_at.to_s(:short) %></p>
     <div class="user-info">
-      <h1 class="user-name"><%= menu.name %></h1>
+      <%= link_to("/menus/#{menu.id}") do %>
+        <h1 class="user-name"><%= menu.name %></h1>
+      <% end %>
       <div class="menu-options">
-        <%= form_with(url: "/menus/#{menu.id}", method: "delete") do |form| %>
-          <%= form.check_box(:active) %>
-        <% end %>
+        <% if @current_user.role == "owner" %>
+          <%= form_with(url: "/menus/#{menu.id}", method: "put") do |form| %>
+            <%= form.check_box(:completed, {
+              onClick: "this.form.submit()",
+              checked: menu.active ? true : false
+              })
+            %>
+          <% end %>
+      <% end %>
         <%= form_with(url: "/menus/#{menu.id}", method: "delete") do |form| %>
           <%= form.submit("", {
                 class: "item-delete",
@@ -19,4 +26,3 @@
       </div>
     </div>
   </div>
-<% end %>

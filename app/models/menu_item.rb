@@ -15,11 +15,6 @@ class MenuItem < ApplicationRecord
         :quantity => quantity,
       }
     end
-
     return items_info
-
-  end
-  def tods
-    "#{name} desc: #{description}"
   end
 end

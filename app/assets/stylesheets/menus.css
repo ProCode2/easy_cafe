@@ -47,3 +47,8 @@ tr:nth-child(even) {
   display: flex;
   align-items: center;
 }
+
+.add-menu-item {
+  display: block;
+  margin-left: auto;
+}

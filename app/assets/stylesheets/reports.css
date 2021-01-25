@@ -1,0 +1,55 @@
+.reports-overview {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: monospace;
+  margin: 0.7rem 1rem;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 12px;
+}
+
+.reports-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reports-form input {
+  margin-left: 1.3rem;
+  margin-right: 0.5rem;
+}
+
+.reports-form select {
+  padding: 0.4rem;
+  background-color: #1a0c47;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 3px 3px 4px lightblue;
+  outline: none;
+}
+
+.date-range {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.date-range p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.orders-area {
+  height: 400px;
+  overflow-y: auto;
+  margin: 1rem 0;
+  border: 1px solid black;
+}
+
+.reports-order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid gray;
+}

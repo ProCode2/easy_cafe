@@ -1,8 +1,8 @@
 <div class="container">
   <h1 class="heading">Create a New Menu</h1>
-        <button onclick="addElement()">Add</button>
+  <button class="button-2 add-menu-item" onclick="addElement()">Add more Item</button>
   <%= form_with(url: menus_path, method: "post", id: "menu-form") do |form| %>
-    <p>Name: </p>
+    <p class="menu-heading">Name: </p>
     <%= form.text_field "name", {placeholder: "Menu Name"} %>
     <div id="all-inputs">
       <div class="menu-inputs" id="1">
@@ -12,7 +12,7 @@
         <%= image_tag(asset_path("delete.png"), alt: "delete", id: "1", onclick: "removeElement(1)") %>
       </div>
     </div>
-    <%= form.submit "Add", onclick: "" %>
+    <%= form.submit "confirm menu", class: "cta" %>
   <% end %>
 </div>
 <script>

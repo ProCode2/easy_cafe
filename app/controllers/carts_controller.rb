@@ -11,11 +11,13 @@ class CartsController < ApplicationController
     items_info = MenuItem.get_item_info(filtered_params)
 
     # create cart record
-    cart = Cart.create_cart(current_user)
-    result = items_info.map do |(item_name, item_info)|
-      cart.cart_items.create_items(item_name, item_info)
-    end
+    result = Cart.create_cart(current_user, items_info)
 
+    if result[:error]
+      flash[:error] = result[:error]
+      redirect_to menus_path
+      return
+    end
     redirect_to carts_path
   end
 
@@ -30,6 +32,7 @@ class CartsController < ApplicationController
     if item_status.destroyed?
       redirect_to carts_path
     else
+      flash[:error] = "Can not delete Item from cart at the moment."
       redirect_to carts_path
     end
   end

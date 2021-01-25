@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_user_is_clerk
+    unless current_user.role == "owner" or current_user.role == "clerk"
+      redirect_to "/"
+    end
+  end
+
   def current_user
     return @current_user if @current_user
     @current_user_id = session[:current_user_id]

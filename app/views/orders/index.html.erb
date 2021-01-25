@@ -1,19 +1,11 @@
 <div class="container">
-  <h1 class="heading">My Orders</h1>
+  <h1 class="heading"><%= @all ? "All Orders" : "My Orders" %></h1>
   <h2 class="order-heading">Pending Orders<h2>
   <% @orders.where(delivered_at: nil).each do |order| %>
-    <%= link_to "/orders/#{order.id}" do %>
-      <div class="order">
-        <h1 class="order-id"><%= "Order ID: ##{order.id}" %></h1>
-        <p class="order-date"><%= order.date.to_s(:long) %></p>
-      </div>
-    <% end %>
+    <%= render partial: "orders", locals: {order: order} %>
   <% end %>
   <h2 class="order-heading">Delivered Orders<h2>
-  <% @orders.where("delivered_at != ?", nil).each do |order| %>
-    <div class="order">
-      <h1 class="order-id"><%= "Order ID: ##{order.id}" %></h1>
-      <p class="order-date"><%= order.date.to_s(:long) %></p>
-    </div>
+  <% @orders.where.not(delivered_at: nil).each do |order| %>
+    <%= render partial: "orders", locals: {order: order} %>
   <% end %>
 </div>

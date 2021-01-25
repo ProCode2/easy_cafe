@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="heading">Sales Reports</h1>
+  <p class="reports-overview"> <%= "Cracking #{@sales_uptil_today}(and counting) in sales!" %> </p>
+  <h1 class="heading">See all orders</h1>
+  <%= form_with(url: user_orders_path, class: "reports-form") do |form| %>
+    <% users = User.all.map { |user| [user.name, user.id] } %>
+    <%= form.select :user_id, options_for_select(users), :prompt => "All Users" %>
+    <div class="date-range">
+      <p>From</p>
+      <%= form.date_field(:from_date) %>
+    </div>
+    <div class="date-range">
+      <p>To</p>
+      <%= form.date_field(:to_date) %>
+    </div>
+    <%= form.submit("Search", class: "button") %>
+  <% end %>
+
+  <div class="orders-area">
+    <% @orders.each do |order| %>
+      <%= link_to("/orders/#{order.id}") do %>
+        <div class="reports-order">
+          <p> <%= order.id %> </p>
+          <p> <%= order.user_name %> </p>
+          <p> <%= order.get_total_price %> </p>
+          <p> <%= order.created_at.to_s(:short) %> </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<div>

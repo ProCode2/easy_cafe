@@ -1,0 +1,18 @@
+
+<div class="order <%= order.delivered_at ? 'delivered' : 'pending' %>">
+  <%= link_to "/orders/#{order.id}" do %>
+    <h1 class="order-id"><%= "Order ID: ##{order.id}" %></h1>
+  <% end %>
+  <div>
+    <% if @current_user.role == "owner" or @current_user.role == "clerk" %>
+      <%= form_with(url: "/orders/#{order.id}", method: "put") do |form| %>
+          <%= form.check_box(:completed, {
+            onClick: "this.form.submit()",
+            checked: order.delivered_at ? true : false
+            })
+          %>
+        <% end %>
+      <% end %>
+    <p class="order-date"><%= order.date.to_s(:long) %></p>
+  </div>
+</div>

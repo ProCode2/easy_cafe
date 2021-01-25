@@ -64,3 +64,30 @@ a {
 .cta:hover {
   transform: scale(1.08);
 }
+
+.flash {
+  position: absolute;
+  min-width: 300px;
+  min-height: 180px;
+  top: 0;
+  right: 0;
+  margin: 2rem;
+  z-index: 1;
+  box-shadow: 3px 3px 4px lightgray;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.flash p {
+  padding: 5rem 4rem;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.error {
+  background-color: rgb(233, 100, 76);
+}
+
+.success {
+  background-color: lightgreen;
+}

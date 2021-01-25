@@ -1,5 +1,6 @@
 <div class="container">
 <h1 class="heading"><%= "Order ID: #{@order.id}" %></h1>
+<h1 class="heading">Total Price: <%= @order.get_total_price %></h1>
 <% @order.order_items.all.each do |item| %>
   <%= render partial: "layouts/menu_items", locals: {item: item, cart: false} %>
 <% end %>

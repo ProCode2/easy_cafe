@@ -1,0 +1,16 @@
+<% if flash[:error] %>
+  <div class="flash error" >
+    <p><%= flash[:error] %></p>
+  </div>
+  <script>
+    window.setTimeout("document.querySelector('.flash').style.display='none';", 2000);
+  </script>
+
+<% elsif flash[:success] %>
+  <div class="flash success" >
+    <p><%= flash[:success] %></p>
+  </div>
+  <script>
+    window.setTimeout("document.querySelector('.flash').style.display='none';", 2000);
+  </script>
+<% end %>

@@ -40,10 +40,9 @@
       <td class="button"><%= form.submit "Add" %></td>
     </tr>
   </table>
-
-
   <% end %>
 
+<% if @current_user.role == "owner" %>
   <div class="">
     <h1 class="heading">Add New Item</h1>
     <%= form_with(url: "/manage/menus/#{@menu.id}", method: "post") do |form| %>
@@ -53,4 +52,6 @@
       <%= form.submit "Add", class: "button-2" %>
     <% end %>
   </div>
+
+<% end %>
 </div>
