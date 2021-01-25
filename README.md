@@ -21,7 +21,7 @@ A cafeteria management system built with:
 
 ### Owners Can
 
-- Manage Users - Add, delete and update `clerks`
+- Manage Users - Add, delete `clerks`
   ![Manage Menus](./screenshots/manage_users.png "Manage Menus")
 - Manage menus - create, update, delete and choose `active` menus
 - Manage Orders - mark orders as delivered
