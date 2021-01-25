@@ -38,3 +38,8 @@ A cafeteria management system built with:
 - Manage Orders - - Manage Orders - mark orders as delivered
 - As well as anything a normal customer can do
   ![Manage Menus](./screenshots/manage_orders.png "Manage Menus")
+
+## Walk-In User's Credentials
+
+`email: test[at]test[dot]com`
+`password: 12345`
