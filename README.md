@@ -35,4 +35,4 @@ A cafeteria management system built with:
 
 - Manage Orders - - Manage Orders - mark orders as delivered
 - As well as anything a normal customer can do
-  ![Manage Menus](./screenshots/manage_users.png "Manage Menus")
+  ![Manage Menus](./screenshots/manage_orders.png "Manage Menus")
