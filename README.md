@@ -1,5 +1,7 @@
 # Easy Cafe
 
+[`Live Site`](https://easy-cafe.herokuapp.com/)
+
 A cafeteria management system built with:
 
 - Ruby On Rails (backend)
