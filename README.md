@@ -1,24 +1,38 @@
-# README
+# Easy Cafe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A cafeteria management system built with:
 
-Things you may want to cover:
+- Ruby On Rails (backend)
+- HTML, CSS, JS (frontend)
 
-* Ruby version
+- [x] It supports multiple user roles like `owner`, `clerk`, `customer`.
+- [x] Offline billing through Walk-IN customer account.
+- [x] See sales report.
+- [x] Manage section for `owner`s and `clerk`s for sudo functionalities.
 
-* System dependencies
+![Home](./screenshots/home-ss.png "Home")
 
-* Configuration
+## Owner Credentials
 
-* Database creation
+`email: admin[at]admin[dot]com`
+`password: admin`
 
-* Database initialization
+### Owners Can
 
-* How to run the test suite
+- Manage Users - Add, delete and update `clerks`
+  ![Manage Menus](./screenshots/manage_users.png "Manage Menus")
+- Manage menus - create, update, delete and choose `active` menus
+- Manage Orders - mark orders as delivered
+- See Sales Report - See total sales on the site so far, see user's orders and details
+- As well as anything a normal customer can do
 
-* Services (job queues, cache servers, search engines, etc.)
+## Clerk's Credentials
 
-* Deployment instructions
+`email: h[at]h[dot]com`
+`password: 12345`
 
-* ...
+### Clerks Can
+
+- Manage Orders - - Manage Orders - mark orders as delivered
+- As well as anything a normal customer can do
+  ![Manage Menus](./screenshots/manage_users.png "Manage Menus")
