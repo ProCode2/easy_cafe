@@ -3,8 +3,8 @@
   <div class="">
     <%= form_with(url: clerks_path, method: "post", class: "clerk-form") do |form| %>
       <%= form.text_field("name", {placeholder: "Name"}) %>
-      <%= form.text_field("email", {placeholder: "Email"}) %>
-      <%= form.text_field("password", {placeholder: "Password"}) %>
+      <%= form.email_field("email", {placeholder: "Email"}) %>
+      <%= form.password_field("password", {placeholder: "Password"}) %>
       <%= form.submit "Add", class: "button-2" %>
     <% end %>
   </div>

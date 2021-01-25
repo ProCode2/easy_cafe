@@ -105,3 +105,22 @@
 .dropdown-content p:hover {
   background-color: lightgrey;
 }
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home img {
+  margin-right: 4rem;
+}
+
+.cta-and-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-and-form a {
+  margin: 1rem 2rem;
+}
