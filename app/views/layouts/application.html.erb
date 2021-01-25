@@ -13,7 +13,9 @@
   <body>
   <header>
     <nav class="navbar">
-      <h1 class="nav-logo">Easy Cafe</h1>
+      <%= link_to("/") do %>
+        <h1 class="nav-logo">Easy Cafe</h1>
+      <% end %>
       <ul class="nav-menu">
         <% if @current_user %>
           <li><%= @current_user.name %></li>
