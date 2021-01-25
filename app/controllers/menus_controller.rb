@@ -3,7 +3,12 @@ class MenusController < ApplicationController
 
   def index
     @menu = Menu.active_menu
-    render "index"
+    if !(@menu)
+      flash[:error] = "There are no menu available at the moment."
+      redirect_to "/"
+    else
+      render "index"
+    end
   end
 
   def show

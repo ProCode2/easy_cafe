@@ -42,7 +42,7 @@
   </table>
   <% end %>
 
-<% if @current_user.role == "owner" %>
+  <% if @current_user.role == "owner" %>
   <div class="">
     <h1 class="heading">Add New Item</h1>
     <%= form_with(url: "/manage/menus/#{@menu.id}", method: "post") do |form| %>
@@ -53,5 +53,5 @@
     <% end %>
   </div>
 
-<% end %>
+  <% end %>
 </div>
