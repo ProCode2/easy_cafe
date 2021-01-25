@@ -17,6 +17,8 @@ class ReportsController < ApplicationController
       return
     end
 
+    @sales_uptil_today = OrderItem.sales_uptil_today
+
     result = Order.get_all_orders_in(from, to, user_id)
 
     if result[:error]
