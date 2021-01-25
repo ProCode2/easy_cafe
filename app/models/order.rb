@@ -48,7 +48,7 @@ class Order < ApplicationRecord
     user = User.find_by_id(user_id)
 
     if user
-      if !from or !to
+      if (from == "") or (to == "")
         return {
           :orders => user.orders.all
         }
