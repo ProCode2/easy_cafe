@@ -41,11 +41,11 @@ class Order < ApplicationRecord
   end
 
   def user_name
-    User.find_by_id(user_id).name
+    User.find_by(id: user_id).name
   end
 
   def self.get_all_orders_in(from, to , user_id = current_user.id)
-    user = User.find_by_id(user_id)
+    user = User.find_by(id: user_id)
 
     if user
       if (from == "") or (to == "")

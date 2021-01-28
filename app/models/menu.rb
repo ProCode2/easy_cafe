@@ -12,11 +12,15 @@ class Menu < ApplicationRecord
     prev_menu = find_by(active: true)
     if prev_menu
       prev_menu.active = false
-      prev_menu.save
+      prev_menu.save!
     end
-    menu = find_by_id(menu_id)
-    menu.active = true
-    menu.save
+    menu = find_by(id: menu_id)
+    if menu
+      menu.active = true
+      return menu.save!
+    else
+      return false
+    end
   end
 
   def self.active_menu
