@@ -27,7 +27,7 @@ class CartsController < ApplicationController
       return
     end
 
-    item = current_user.cart.cart_items.find_by_id(id)
+    item = current_user.cart.cart_items.find_by(id: id)
     item_status = item.destroy
     if item_status.destroyed?
       redirect_to carts_path

@@ -20,9 +20,9 @@ class OrdersController < ApplicationController
     end
 
     if current_user.role == "owner" or current_user.role == "clerk"
-      @order = Order.find_by_id(id)
+      @order = Order.find_by(id: id)
     else
-      @order = current_user.orders.find_by_id(id)
+      @order = current_user.orders.find_by(id: id)
     end
     render "order"
   end
@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
       return
     end
 
-    order = Order.find_by_id(id)
+    order = Order.find_by(id: id)
     if params[:completed] == "1"
       order.delivered_at = Date.today;
     else

@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def self.delete_user(id)
-    user = find_by_id(id)
+    user = find_by(id: id)
     user.destroy
     user.destroyed?
   end

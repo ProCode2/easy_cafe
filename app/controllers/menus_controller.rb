@@ -18,7 +18,7 @@ class MenusController < ApplicationController
       return
     end
 
-    @menu = Menu.find_by_id(id)
+    @menu = Menu.find_by(id: id)
     render "menus/index"
   end
 
@@ -59,7 +59,7 @@ class MenusController < ApplicationController
       return
     end
 
-    menu = Menu.find_by_id(id)
+    menu = Menu.find_by(id: id)
 
     menu.destroy
     redirect_to all_menus_path
