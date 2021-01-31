@@ -8,13 +8,13 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_user_is_owner
-    unless current_user.role == "owner"
+    unless current_user.owner?
       redirect_to "/"
     end
   end
 
   def ensure_user_is_clerk
-    unless current_user.role == "owner" or current_user.role == "clerk"
+    unless current_user.owner? or current_user.clerk?
       redirect_to "/"
     end
   end

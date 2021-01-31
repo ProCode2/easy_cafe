@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       return
     end
 
-    if current_user.role == "owner" or current_user.role == "clerk"
+    if current_user.owner? || current_user.clerk?
       @order = Order.find_by(id: id)
     else
       @order = current_user.orders.find_by(id: id)
