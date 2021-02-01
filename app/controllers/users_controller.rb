@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       flash[:success] = "Succesfully Registered"
       if user.role == "customer"
         redirect_to menus_path
-      elsif user.role == "owner"
+      elsif user.owner?
         redirect_to users_path
       else
         redirect_to manage_orders_path

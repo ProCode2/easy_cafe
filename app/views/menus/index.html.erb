@@ -9,7 +9,7 @@
       <th>Description</th>
       <th>Price</th>
       <th>quantity</th>
-      <% if @current_user.role == "owner" %>
+      <% if @current_user.owner? %>
         <th>Edit</th>
       <% end %>
     </tr>
@@ -21,7 +21,7 @@
         <td>
             <%= form.number_field "menu_items[#{item.name}]", in:1..200 %>
         </td>
-        <% if @current_user.role == "owner" %>
+        <% if @current_user.owner? %>
           <td>
             <%= link_to("/menuitem/#{item.id}") do %>
               <%= image_tag(asset_path("pencil.png"), size: "20x20") %>
@@ -42,7 +42,7 @@
   </table>
   <% end %>
 
-  <% if @current_user.role == "owner" %>
+  <% if @current_user.owner? %>
   <div class="">
     <h1 class="heading">Add New Item</h1>
     <%= form_with(url: "/manage/menus/#{@menu.id}", method: "post") do |form| %>

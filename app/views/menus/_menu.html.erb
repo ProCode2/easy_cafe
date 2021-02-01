@@ -5,7 +5,7 @@
         <h1 class="user-name"><%= menu.name %></h1>
       <% end %>
       <div class="menu-options">
-        <% if @current_user.role == "owner" %>
+        <% if @current_user.owner? %>
           <%= form_with(url: "/menus/#{menu.id}", method: "put") do |form| %>
             <%= form.check_box(:completed, {
               onClick: "this.form.submit()",
