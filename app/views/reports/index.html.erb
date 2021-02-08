@@ -15,7 +15,6 @@
     </div>
     <%= form.submit("Search", class: "button") %>
   <% end %>
-
   <div class="orders-area">
     <% @orders.each do |order| %>
       <%= link_to("/orders/#{order.id}") do %>
@@ -28,4 +27,4 @@
       <% end %>
     <% end %>
   </div>
-<div>
+  <div>

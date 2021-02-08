@@ -15,10 +15,6 @@ class OrdersController < ApplicationController
   def show
     id = params[:id].to_i
 
-    if id <= 0
-      return
-    end
-
     if current_user.role == "owner" or current_user.role == "clerk"
       @order = Order.find_by(id: id)
     else
@@ -42,15 +38,11 @@ class OrdersController < ApplicationController
   def update
     id = params[:id].to_i
 
-    if id <= 0
-      return
-    end
-
     order = Order.find_by(id: id)
     if params[:completed] == "1"
-      order.delivered_at = Date.today;
+      order.delivered_at = Date.today
     else
-      order.delivered_at = nil;
+      order.delivered_at = nil
     end
 
     if order.save

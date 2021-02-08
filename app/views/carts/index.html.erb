@@ -1,11 +1,10 @@
 <section class="container">
-
   <div class="cart-options">
-    <%= link_to "Add more items", menus_path, class: "cta"  %>
-    <%= link_to "Proceed to order", orders_path, class: "cta", method: "post"  %>
+    <%= link_to "Add more items", menus_path, class: "cta" %>
+    <%= link_to "Proceed to order", orders_path, class: "cta", method: "post" %>
   </div>
   <h1 class="heading">Total Price: <%= Cart.get_total_price(@cart) %></h1>
   <% @cart.each do |item| %>
-    <%= render partial: "layouts/menu_items", locals: {item: item, cart: true} %>
+    <%= render partial: "layouts/menu_items", locals: { item: item, cart: true } %>
   <% end %>
 </section>

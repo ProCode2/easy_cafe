@@ -1,12 +1,11 @@
 class CartsController < ApplicationController
-
   def index
     @cart = (current_user.cart) ? current_user.cart.cart_items.all.order(:id) : []
     render "index"
   end
 
   def create
-    filtered_params = params[:menu_items].select {|key, value| value != "" }
+    filtered_params = params[:menu_items].select { |key, value| value != "" }
 
     items_info = MenuItem.get_item_info(filtered_params)
 

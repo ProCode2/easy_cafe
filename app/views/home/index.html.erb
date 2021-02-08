@@ -3,7 +3,7 @@
   <div class="cta-and-form">
     <%= link_to "Sign In", new_session_path, class: "cta" %>
     <%= link_to "Sign Up", new_user_path, class: "cta" %>
-  <h1 class="heading-2">Offline Billing(Use Walk IN User's password)</h1>
+    <h1 class="heading-2">Offline Billing(Use Walk IN User's password)</h1>
     <%= form_with(url: sessions_path, method: "post", class: "clerk-form") do |form| %>
       <%= form.text_field("email", {placeholder: "Email", hidden: true, value: "test@test.com"}) %>
       <%= form.password_field("password", {placeholder: "Password"}) %>

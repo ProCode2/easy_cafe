@@ -3,55 +3,53 @@
     <%= @menu.name %>
   </h1>
   <%= form_with(url: carts_path, method: "post") do |form| %>
-  <table class="menu-table">
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>quantity</th>
-      <% if @current_user.role == "owner" %>
-        <th>Edit</th>
-      <% end %>
-    </tr>
-    <% @menu.menu_items.each do |item| %>
+    <table class="menu-table">
       <tr>
-        <td><%= item.name %></td>
-        <td><%= item.description %></td>
-        <td><%= item.price %></td>
-        <td>
-            <%= form.number_field "menu_items[#{item.name}]", in:1..200 %>
-        </td>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>quantity</th>
         <% if @current_user.role == "owner" %>
-          <td>
-            <%= link_to("/menuitem/#{item.id}") do %>
-              <%= image_tag(asset_path("pencil.png"), size: "20x20") %>
-            <% end %>
-            <%= link_to("/menuitem/#{item.id}", method: "delete") do %>
-              <%= image_tag(asset_path("delete.png"), size: "20x20") %>
-            <% end %>
-          </td>
-      <% end %>
+          <th>Edit</th>
+        <% end %>
       </tr>
-    <% end %>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td class="button"><%= form.submit "Add" %></td>
-    </tr>
-  </table>
+      <% @menu.menu_items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.description %></td>
+          <td><%= item.price %></td>
+          <td>
+            <%= form.number_field "menu_items[#{item.name}]", in:1..200 %>
+          </td>
+          <% if @current_user.role == "owner" %>
+            <td>
+              <%= link_to("/menuitem/#{item.id}") do %>
+                <%= image_tag(asset_path("pencil.png"), size: "20x20") %>
+              <% end %>
+              <%= link_to("/menuitem/#{item.id}", method: "delete") do %>
+                <%= image_tag(asset_path("delete.png"), size: "20x20") %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="button"><%= form.submit "Add" %></td>
+      </tr>
+    </table>
   <% end %>
-
   <% if @current_user.role == "owner" %>
-  <div class="">
-    <h1 class="heading">Add New Item</h1>
-    <%= form_with(url: "/manage/menus/#{@menu.id}", method: "post") do |form| %>
-      <%= form.text_field("name", {placeholder: "Name"}) %>
-      <%= form.text_field("desc", {placeholder: "Description"}) %>
-      <%= form.text_field("price", {placeholder: "Price"}) %>
-      <%= form.submit "Add", class: "button-2" %>
-    <% end %>
-  </div>
-
+    <div class="">
+      <h1 class="heading">Add New Item</h1>
+      <%= form_with(url: "/manage/menus/#{@menu.id}", method: "post") do |form| %>
+        <%= form.text_field("name", {placeholder: "Name"}) %>
+        <%= form.text_field("desc", {placeholder: "Description"}) %>
+        <%= form.text_field("price", {placeholder: "Price"}) %>
+        <%= form.submit "Add", class: "button-2" %>
+      <% end %>
+    </div>
   <% end %>
 </div>

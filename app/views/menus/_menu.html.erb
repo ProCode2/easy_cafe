@@ -1,28 +1,29 @@
-  <div class="user">
-    <p class="user-date"><%= menu.created_at.to_s(:short) %></p>
-    <div class="user-info">
-      <%= link_to("/menus/#{menu.id}") do %>
-        <h1 class="user-name"><%= menu.name %></h1>
-      <% end %>
-      <div class="menu-options">
-        <% if @current_user.role == "owner" %>
-          <%= form_with(url: "/menus/#{menu.id}", method: "put") do |form| %>
-            <%= form.check_box(:completed, {
+  
+<div class="user">
+  <p class="user-date"><%= menu.created_at.to_s(:short) %></p>
+  <div class="user-info">
+    <%= link_to("/menus/#{menu.id}") do %>
+      <h1 class="user-name"><%= menu.name %></h1>
+    <% end %>
+    <div class="menu-options">
+      <% if @current_user.role == "owner" %>
+        <%= form_with(url: "/menus/#{menu.id}", method: "put") do |form| %>
+          <%= form.check_box(:completed, {
               onClick: "this.form.submit()",
               checked: menu.active ? true : false
               })
             %>
-          <% end %>
+        <% end %>
       <% end %>
-        <%= form_with(url: "/menus/#{menu.id}", method: "delete") do |form| %>
-          <%= form.submit("", {
+      <%= form_with(url: "/menus/#{menu.id}", method: "delete") do |form| %>
+        <%= form.submit("", {
                 class: "item-delete",
                 type: "image",
                 src: asset_path('delete.png'),
                 alt: "submit",
                 onClick: "this.form.submit()"
                 }) %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>

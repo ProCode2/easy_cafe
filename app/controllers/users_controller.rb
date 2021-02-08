@@ -51,7 +51,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def destroy
     id = params[:id].to_i
     if id < 0

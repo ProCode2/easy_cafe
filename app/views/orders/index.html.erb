@@ -1,11 +1,13 @@
 <div class="container">
   <h1 class="heading"><%= @all ? "All Orders" : "My Orders" %></h1>
-  <h2 class="order-heading">Pending Orders<h2>
-  <% @orders.where(delivered_at: nil).each do |order| %>
-    <%= render partial: "orders", locals: {order: order} %>
-  <% end %>
-  <h2 class="order-heading">Delivered Orders<h2>
-  <% @orders.where.not(delivered_at: nil).each do |order| %>
-    <%= render partial: "orders", locals: {order: order} %>
-  <% end %>
-</div>
+  <h2 class="order-heading">Pending Orders
+    <h2>
+      <% @orders.where(delivered_at: nil).each do |order| %>
+        <%= render partial: "orders", locals: {order: order} %>
+      <% end %>
+      <h2 class="order-heading">Delivered Orders
+        <h2>
+          <% @orders.where.not(delivered_at: nil).each do |order| %>
+            <%= render partial: "orders", locals: {order: order} %>
+          <% end %>
+        </div>

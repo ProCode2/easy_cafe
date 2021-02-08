@@ -14,7 +14,7 @@ class CartItem < ApplicationRecord
       existing_item.menu_item_price = price + (item_info[:quantity].to_i * item_info[:price].to_d)
       return existing_item.save
     else
-      item = new(menu_item_id: item_info[:id], menu_item_name: item_name,menu_item_quantity: item_info[:quantity].to_i, menu_item_price: (item_info[:price].to_d * item_info[:quantity].to_i))
+      item = new(menu_item_id: item_info[:id], menu_item_name: item_name, menu_item_quantity: item_info[:quantity].to_i, menu_item_price: (item_info[:price].to_d * item_info[:quantity].to_i))
       if item.save
         return true
       else

@@ -27,19 +27,19 @@
     name_input.id = `menu_item[${id}][name]`;
     name_input.placeholder = "Item Name";
     name_input.type = "text";
-
+  
     let desc_input = document.createElement("input");
     desc_input.name = `menu_item[${id}][desc]`;
     desc_input.id = `menu_item[${id}][desc]`;
     desc_input.placeholder = "Item Description";
     desc_input.type = "text";
-
+  
     let price_input = document.createElement("input");
     price_input.name = `menu_item[${id}][price]`;
     price_input.id = `menu_item[${id}][price]`;
     price_input.placeholder = "Item Price";
     price_input.type = "text";
-
+  
     let submit = document.createElement("img");
     submit.src = "/assets/delete-cfca301a6398d44b6cf5aaa97d229bc6845fc792cb9ca51dcfc16398d348cbd7.png";
     submit.alt = "delete";
@@ -47,22 +47,22 @@
     submit.addEventListener("click", (e) => {
       removeElement(e.target.id);
     })
-
+  
     div.appendChild(name_input);
     div.appendChild(desc_input);
     div.appendChild(price_input);
     div.appendChild(submit);
-
+  
     inputDiv.appendChild(div);
-
+  
     id++;
   }
-
-
+  
+  
   function removeElement(id) {
     let ele = document.getElementById(id);
     let parentElement = document.getElementById("all-inputs");
-
+  
     parentElement.removeChild(ele);
   }
 </script>

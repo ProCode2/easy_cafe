@@ -5,8 +5,8 @@ class Cart < ApplicationRecord
   def self.create_cart(current_user, items_info)
     if items_info.keys.length == 0
       return {
-        :error => "Not enough items to add in cart."
-      }
+               :error => "Not enough items to add in cart.",
+             }
     end
     current_user.cart = Cart.find_or_create_by!(user_id: current_user.id)
     result = items_info.map do |(item_name, item_info)|
@@ -14,8 +14,8 @@ class Cart < ApplicationRecord
     end
 
     return {
-      :success => result
-    }
+             :success => result,
+           }
   end
 
   def self.get_total_price(cart_items)

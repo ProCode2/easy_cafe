@@ -19,19 +19,19 @@ class User < ApplicationRecord
       name: name,
       email: email,
       password: digest,
-      role: role
+      role: role,
     )
 
     if new_user.save
       return {
-        success: new_user,
-        error: nil
-      }
+               success: new_user,
+               error: nil,
+             }
     else
       return {
-        success: false,
-        error: new_user.errors.full_messages.join("\n")
-      }
+               success: false,
+               error: new_user.errors.full_messages.join("\n"),
+             }
     end
   end
 
