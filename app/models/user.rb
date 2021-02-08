@@ -40,4 +40,13 @@ class User < ApplicationRecord
     user.destroy
     user.destroyed?
   end
+
+  # Authorization functions
+  def owner?
+    role == "owner"
+  end
+
+  def clerk
+    role == "clerk"
+  end
 end

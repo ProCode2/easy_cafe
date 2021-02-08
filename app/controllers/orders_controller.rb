@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   def show
     id = params[:id].to_i
 
-    if current_user.role == "owner" or current_user.role == "clerk"
+    if current_user.owner? || current_user.clerk?
       @order = Order.find_by(id: id)
     else
       @order = current_user.orders.find_by(id: id)

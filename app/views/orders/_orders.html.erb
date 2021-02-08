@@ -3,7 +3,7 @@
     <h1 class="order-id"><%= "Order ID: ##{order.id}" %></h1>
   <% end %>
   <div>
-    <% if @current_user.role == "owner" or @current_user.role == "clerk" %>
+    <% if @current_user.owner? || @current_user.clerk? %>
       <%= form_with(url: "/orders/#{order.id}", method: "put") do |form| %>
         <%= form.check_box(:completed, {
             onClick: "this.form.submit()",
