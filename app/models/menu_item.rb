@@ -9,8 +9,8 @@ class MenuItem < ApplicationRecord
         return
       end
 
-      items_info[item.name] = {
-        :id => item.id,
+      items_info[item.id] = {
+        :name => item.name,
         :price => item.price,
         :quantity => quantity,
       }

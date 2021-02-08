@@ -9,8 +9,8 @@ class Cart < ApplicationRecord
              }
     end
     current_user.cart = Cart.find_or_create_by!(user_id: current_user.id)
-    result = items_info.map do |(item_name, item_info)|
-      current_user.cart.cart_items.create_items(item_name, item_info)
+    result = items_info.map do |(item_id, item_info)|
+      current_user.cart.cart_items.create_items(item_id, item_info)
     end
 
     return {
