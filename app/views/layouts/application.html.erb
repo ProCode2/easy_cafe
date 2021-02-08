@@ -9,48 +9,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-<<<<<<< HEAD
     <header>
       <nav class="navbar">
         <%= link_to("/") do %>
           <h1 class="nav-logo">Easy Cafe</h1>
-=======
-  <header>
-    <nav class="navbar">
-      <%= link_to("/") do %>
-        <h1 class="nav-logo">Easy Cafe</h1>
-      <% end %>
-      <ul class="nav-menu">
-        <% if @current_user %>
-          <li><%= @current_user.name %></li>
-          <% if @current_user.clerk? or @current_user.owner? %>
-            <li class="dropdown"><span>Manage</span>
-            <div class="dropdown-content">
-              <% if @current_user.owner? %>
-                <p><%= link_to "Users", users_path %></p>
-                <p><%= link_to "Menus", all_menus_path %></p>
-                <p><%= link_to "Reports", reports_path %></p>
-              <% end %>
-              <p><%= link_to "Orders", manage_orders_path %></p>
-            </div>
-            </li>
-          <% end %>
-          <li><%= link_to "Menu", menus_path %></li>
-          <li><%= link_to "Cart", carts_path %></li>
-          <li><%= link_to "My Orders", orders_path %></li>
-          <li><%= link_to "Sign out", destroy_session_path, method: "delete" %></li>
-        <% else %>
-          <li><%= link_to "Sign In", new_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_path %></li>
->>>>>>> 31239951d85614ef38706556bd377b6679c31585
         <% end %>
         <ul class="nav-menu">
           <% if @current_user %>
             <li><%= @current_user.name %></li>
-            <% if @current_user.role == "clerk" or @current_user.role == "owner" %>
+            <% if @current_user.clerk? or @current_user.owner? %>
               <li class="dropdown"><span>Manage</span>
                 <div class="dropdown-content">
-                  <% if @current_user.role == "owner" %>
+                  <% if @current_user.owner? %>
                     <p><%= link_to "Users", users_path %></p>
                     <p><%= link_to "Menus", all_menus_path %></p>
                     <p><%= link_to "Reports", reports_path %></p>

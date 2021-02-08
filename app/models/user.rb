@@ -46,7 +46,7 @@ class User < ApplicationRecord
     role == "owner"
   end
 
-  def clerk
+  def clerk?
     role == "clerk"
   end
 end

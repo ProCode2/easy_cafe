@@ -3,14 +3,13 @@
     <%= @menu.name %>
   </h1>
   <%= form_with(url: carts_path, method: "post") do |form| %>
-<<<<<<< HEAD
     <table class="menu-table">
       <tr>
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
         <th>quantity</th>
-        <% if @current_user.role == "owner" %>
+        <% if @current_user.owner? %>
           <th>Edit</th>
         <% end %>
       </tr>
@@ -19,31 +18,10 @@
           <td><%= item.name %></td>
           <td><%= item.description %></td>
           <td><%= item.price %></td>
-=======
-  <table class="menu-table">
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>quantity</th>
-      <% if @current_user.owner? %>
-        <th>Edit</th>
-      <% end %>
-    </tr>
-    <% @menu.menu_items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= item.description %></td>
-        <td><%= item.price %></td>
-        <td>
-            <%= form.number_field "menu_items[#{item.name}]", in:1..200 %>
-        </td>
-        <% if @current_user.owner? %>
->>>>>>> 31239951d85614ef38706556bd377b6679c31585
           <td>
             <%= form.number_field "menu_items[#{item.name}]", in:1..200 %>
           </td>
-          <% if @current_user.role == "owner" %>
+          <% if @current_user.owner? %>
             <td>
               <%= link_to("/menuitem/#{item.id}") do %>
                 <%= image_tag(asset_path("pencil.png"), size: "20x20") %>
@@ -63,8 +41,7 @@
       </tr>
     </table>
   <% end %>
-<<<<<<< HEAD
-  <% if @current_user.role == "owner" %>
+  <% if @current_user.owner? %>
     <div class="">
       <h1 class="heading">Add New Item</h1>
       <%= form_with(url: "/manage/menus/#{@menu.id}", method: "post") do |form| %>
@@ -74,19 +51,5 @@
         <%= form.submit "Add", class: "button-2" %>
       <% end %>
     </div>
-=======
-
-  <% if @current_user.owner? %>
-  <div class="">
-    <h1 class="heading">Add New Item</h1>
-    <%= form_with(url: "/manage/menus/#{@menu.id}", method: "post") do |form| %>
-      <%= form.text_field("name", {placeholder: "Name"}) %>
-      <%= form.text_field("desc", {placeholder: "Description"}) %>
-      <%= form.text_field("price", {placeholder: "Price"}) %>
-      <%= form.submit "Add", class: "button-2" %>
-    <% end %>
-  </div>
-
->>>>>>> 31239951d85614ef38706556bd377b6679c31585
   <% end %>
 </div>
