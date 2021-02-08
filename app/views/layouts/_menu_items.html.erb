@@ -6,7 +6,7 @@
       <div class="item-option">
         <div class="item-add">
           <%= form_with(url: carts_path, method: "post") do |form| %>
-            <%= form.number_field "menu_items[#{item.menu_item_name}]", in:1..200, class: "item-quantity" %>
+            <%= form.number_field "menu_items[#{item.menu_item_id}]", in:1..200, class: "item-quantity" %>
             <%= form.submit "Add", in:1..200, class: "button-2" %>
           <% end %>
         </div>

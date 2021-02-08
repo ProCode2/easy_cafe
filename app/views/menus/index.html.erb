@@ -19,7 +19,7 @@
           <td><%= item.description %></td>
           <td><%= item.price %></td>
           <td>
-            <%= form.number_field "menu_items[#{item.name}]", in:1..200 %>
+            <%= form.number_field "menu_items[#{item.id}]", in:1..200 %>
           </td>
           <% if @current_user.owner? %>
             <td>

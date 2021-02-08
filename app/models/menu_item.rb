@@ -3,13 +3,13 @@ class MenuItem < ApplicationRecord
 
   def self.get_item_info(items)
     items_info = {}
-    items.each do |(name, quantity)|
-      item = find_by(name: name)
+    items.each do |(item_id, quantity)|
+      item = find_by(id: item_id)
       if !item
         return
       end
 
-      items_info[name] = {
+      items_info[item.name] = {
         :id => item.id,
         :price => item.price,
         :quantity => quantity,

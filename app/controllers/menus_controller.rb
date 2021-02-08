@@ -14,10 +14,6 @@ class MenusController < ApplicationController
   def show
     id = params[:id].to_i
 
-    if id <= 0
-      return
-    end
-
     @menu = Menu.find_by(id: id)
     render "menus/index"
   end
